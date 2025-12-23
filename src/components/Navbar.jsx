@@ -8,7 +8,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      setIsScrolled(window.scrollY > 20)
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
@@ -16,7 +16,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Inicio', href: '#inicio' },
-    { name: 'Proyectos', href: '#proyectos' },
+    { name: 'Experiencia', href: '#proyectos' },
     { name: 'Sobre Mí', href: '#sobre-mi' },
     { name: 'Contacto', href: '#contacto' },
   ]
@@ -26,19 +26,15 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm' : 'bg-transparent'
+        isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm border-b border-slate-200/50' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4">
+      <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#inicio" className="flex items-center space-x-2 group">
-            <div className="w-10 h-10 bg-navy-deep flex items-center justify-center rounded-lg group-hover:scale-105 transition-transform">
-              <span className="text-white font-bold text-xl">T</span>
-            </div>
-            <span className="text-xl font-semibold text-navy-deep hidden sm:block">
-              Torres Ingeniería
-            </span>
+          <a href="#inicio" className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
+            <span className="w-8 h-8 bg-slate-900 text-white flex items-center justify-center rounded-lg font-display">T</span>
+            Torres Ingeniería
           </a>
 
           {/* Desktop Navigation */}
@@ -47,19 +43,23 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-gray-700 hover:text-navy-deep transition-colors relative group"
+                className="text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-navy-deep group-hover:w-full transition-all duration-300" />
               </a>
             ))}
+            <a 
+              href="#contacto"
+              className="px-4 py-2 bg-slate-900 text-white text-sm font-medium rounded-lg hover:bg-slate-800 transition-all"
+            >
+              Consultoría
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-navy-deep"
-            aria-label="Toggle menu"
+            className="md:hidden p-2 text-slate-900"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -72,7 +72,7 @@ const Navbar = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden mt-4 pb-4"
+              className="md:hidden mt-4 pb-4 border-t border-slate-100 pt-4 bg-white shadow-xl rounded-b-2xl absolute left-0 right-0 px-6 top-full"
             >
               <div className="flex flex-col space-y-4">
                 {navLinks.map((link) => (
@@ -80,7 +80,7 @@ const Navbar = () => {
                     key={link.name}
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-gray-700 hover:text-navy-deep transition-colors py-2"
+                    className="text-slate-600 hover:text-emerald-600 font-medium py-2"
                   >
                     {link.name}
                   </a>
@@ -95,4 +95,3 @@ const Navbar = () => {
 }
 
 export default Navbar
-

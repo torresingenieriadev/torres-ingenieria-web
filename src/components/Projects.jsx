@@ -1,136 +1,105 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ShoppingBag, Brain, Network } from 'lucide-react'
+import { Server, ShoppingCart, BrainCircuit, ArrowUpRight, Database, Cloud, Code } from 'lucide-react'
 
 const Projects = () => {
-  const projects = [
+  const experiences = [
     {
       id: 1,
-      title: 'Migración de Sistemas Distribuidos',
-      subtitle: 'Chat01/Chat02',
-      description:
-        'Migración crítica de infraestructura de sockets e instancias IP para sistemas de mensajería masiva. Reducción de latencia y mejora en la estabilidad del sistema distribuido.',
-      tags: ['Backend', 'Distributed Systems', 'Sockets', 'PHP', 'Database Migration'],
-      icon: Network,
-      gradient: 'from-navy-deep to-black',
+      role: 'Lead Backend Engineer',
+      project: 'Distributed Messaging Core (Chat01/02)',
+      metric: '40% reducción latencia',
+      description: 'Lideré la migración crítica de una arquitectura monolítica heredada a un sistema distribuido de microservicios. Implementé protocolos de sockets optimizados para manejar concurrencia masiva.',
+      tech: ['Node.js', 'Socket.io', 'Redis', 'Docker', 'System Design'],
+      icon: Server,
+      color: 'text-blue-600',
+      bg: 'bg-blue-50'
     },
     {
       id: 2,
-      title: 'Aurum & Co.',
-      subtitle: 'E-Commerce',
-      description:
-        'Plataforma de comercio digital para joyería de alta gama. Enfoque en UX minimalista y conversión directa vía API de WhatsApp.',
-      tags: ['React', 'Frontend', 'UX/UI', 'Business Logic'],
-      icon: ShoppingBag,
-      gradient: 'from-navy-deep to-black',
+      role: 'Full Stack Architect',
+      project: 'Aurum & Co. E-Commerce',
+      metric: '30% conversión directa',
+      description: 'Diseño e implementación de una plataforma de comercio digital "headless". Enfoque en performance (Core Web Vitals) y una experiencia de usuario fluida que elimina fricción en el checkout.',
+      tech: ['React', 'Next.js', 'Tailwind', 'Stripe API', 'UX Research'],
+      icon: ShoppingCart,
+      color: 'text-purple-600',
+      bg: 'bg-purple-50'
     },
     {
       id: 3,
-      title: 'Gemini Financial Advisor',
-      subtitle: 'IA Financiera',
-      description:
-        'Desarrollo de una "Gem" personalizada de IA para asesoría financiera automatizada y gestión de gastos personales.',
-      tags: ['AI', 'Prompt Engineering', 'FinTech', 'Automation'],
-      icon: Brain,
-      gradient: 'from-navy-deep to-black',
-    },
+      role: 'AI Solutions Engineer',
+      project: 'Gemini Financial Advisor',
+      metric: 'Automatización 24/7',
+      description: 'Desarrollo de un agente autónomo de asesoría financiera. Integración de LLMs con contextos específicos de negocio para ofrecer recomendaciones personalizadas en tiempo real.',
+      tech: ['Python', 'LangChain', 'OpenAI API', 'Vector DB', 'FinTech'],
+      icon: BrainCircuit,
+      color: 'text-emerald-600',
+      bg: 'bg-emerald-50'
+    }
   ]
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-      },
-    },
-  }
 
   return (
     <section id="proyectos" className="py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-20"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-navy-deep mb-4">
-            Proyectos Destacados
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="mb-20">
+          <h2 className="text-emerald-600 font-semibold tracking-wide uppercase text-sm mb-3">
+            Trayectoria & Resultados
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Soluciones técnicas que combinan arquitectura robusta con impacto real en el negocio.
+          <h3 className="text-4xl font-bold text-slate-900 mb-6">
+            Ingeniería aplicada a problemas reales
+          </h3>
+          <p className="text-xl text-slate-600 max-w-2xl">
+            Más allá del código, mi enfoque es la <span className="text-slate-900 font-medium">eficiencia operativa</span> y la escalabilidad del negocio.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Projects Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {projects.map((project) => {
-            const IconComponent = project.icon
+        <div className="grid lg:grid-cols-3 gap-8">
+          {experiences.map((exp, index) => {
+            const Icon = exp.icon
             return (
               <motion.div
-                key={project.id}
-                variants={itemVariants}
-                whileHover={{ y: -8 }}
-                className="group bg-white rounded-2xl border border-gray-200 overflow-hidden hover:border-navy-deep/25 hover:shadow-2xl transition-all duration-300"
+                key={exp.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group relative bg-slate-50 rounded-2xl p-8 hover:bg-white hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-300 border border-slate-100 hover:border-slate-200"
               >
-                {/* Icon Header */}
-                <div className={`h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center relative overflow-hidden`}>
-                  <div className="absolute inset-0 bg-black/15" />
-                  <div className="absolute inset-0 opacity-[0.08] [background:radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.6)_1px,transparent_0)] [background-size:18px_18px]" />
-                  <IconComponent size={64} className="text-white z-10" strokeWidth={1.5} />
+                {/* Header Card */}
+                <div className="flex justify-between items-start mb-6">
+                  <div className={`p-3 rounded-xl ${exp.bg} ${exp.color}`}>
+                    <Icon size={28} strokeWidth={1.5} />
+                  </div>
+                  <div className="flex items-center gap-1 text-slate-400 group-hover:text-slate-900 transition-colors">
+                    <span className="text-xs font-semibold uppercase tracking-wider">Case Study</span>
+                    <ArrowUpRight size={14} />
+                  </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-6 space-y-4">
-                  <div>
-                    <h3 className="text-2xl font-bold text-navy-deep mb-1 group-hover:text-black transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm text-gray-500 font-medium">{project.subtitle}</p>
-                  </div>
+                <h4 className="text-lg font-bold text-slate-900 mb-1">{exp.project}</h4>
+                <p className="text-sm font-medium text-emerald-600 mb-4">{exp.role} • {exp.metric}</p>
+                
+                <p className="text-slate-600 leading-relaxed mb-6 text-sm">
+                  {exp.description}
+                </p>
 
-                  <p className="text-gray-600 leading-relaxed">{project.description}</p>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, index) => (
-                      <span
-                        key={index}
-                        className="px-3 py-1 bg-navy-deep/5 text-navy-deep text-xs font-medium rounded-full border border-navy-deep/10"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-200/60">
+                  {exp.tech.map(t => (
+                    <span key={t} className="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-600">
+                      {t}
+                    </span>
+                  ))}
                 </div>
               </motion.div>
             )
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   )
 }
 
 export default Projects
-
