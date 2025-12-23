@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Code2, Database, Rocket, Brain, BookOpen, Sparkles } from 'lucide-react'
+import { Code2, Database, Rocket, Brain, BookOpen, Lightbulb } from 'lucide-react'
 
 const About = () => {
   const skills = [
@@ -23,8 +23,8 @@ const About = () => {
 
   const interests = [
     { icon: Brain, text: 'Filosofía y pensamiento sistémico' },
-    { icon: BookOpen, text: 'Aprendizaje continuo' },
-    { icon: Sparkles, text: 'Astrología simbólica y negocios' },
+    { icon: BookOpen, text: 'Aprendizaje continuo e investigación' },
+    { icon: Lightbulb, text: 'Estrategia de producto y negocios' },
   ]
 
   return (
@@ -67,9 +67,8 @@ const About = () => {
                 de transformación, donde cada línea debe tener un propósito claro.
               </p>
               <p>
-                Más allá del código, me apasiona entender los sistemas —tanto técnicos como humanos—. La filosofía,
-                el aprendizaje continuo y el análisis simbólico me dan perspectivas únicas para resolver problemas
-                de formas no convencionales.
+                Más allá del código, me apasiona entender los sistemas —tanto técnicos como humanos—. La filosofía
+                y el aprendizaje continuo me dan perspectivas únicas para resolver problemas complejos de formas no convencionales.
               </p>
             </div>
 
