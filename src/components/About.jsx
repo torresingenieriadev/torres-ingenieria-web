@@ -28,8 +28,8 @@ const About = () => {
   ]
 
   return (
-    <section id="sobre-mi" className="py-32 bg-gradient-to-br from-gray-50 via-white to-gray-50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="sobre-mi" className="py-32 bg-slate-50 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -38,8 +38,8 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-navy-deep mb-4">Sobre Mí</h2>
-          <div className="w-20 h-1 bg-navy-deep mx-auto" />
+          <h2 className="text-emerald-600 font-semibold tracking-wide uppercase text-sm mb-3">Filosofía de Trabajo</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Sobre Mí</h2>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -51,15 +51,15 @@ const About = () => {
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
+            <div className="space-y-4 text-slate-600 text-lg leading-relaxed">
               <p>
-                Soy <span className="font-semibold text-navy-deep">Santiago Torres Díaz</span>, ingeniero de software con base en{' '}
+                Soy <span className="font-semibold text-slate-900">Santiago Torres Díaz</span>, ingeniero de software con base en{' '}
                 <span className="font-semibold">Medellín, Colombia</span>. Mi enfoque combina precisión técnica
                 con una visión estratégica del negocio.
               </p>
               <p>
-                Actualmente curso Ingeniería de Software y Datos en IUDigital de Antioquia, donde profundizo
-                en arquitecturas distribuidas y análisis de sistemas complejos.
+                Actualmente curso <span className="font-semibold text-slate-900">Ingeniería de Software y Datos en la IU Digital de Antioquia</span>, donde profundizo
+                en arquitecturas distribuidas y análisis de sistemas complejos, complementando mi formación previa en Ingeniería Eléctrica (UNAL).
               </p>
               <p>
                 Mi trabajo se centra en resolver problemas críticos: desde migrar infraestructuras de mensajería
@@ -75,13 +75,13 @@ const About = () => {
 
             {/* Interests */}
             <div className="pt-8 space-y-3">
-              <h3 className="text-xl font-semibold text-navy-deep">Más allá del código</h3>
+              <h3 className="text-xl font-semibold text-slate-900">Más allá del código</h3>
               <div className="space-y-2">
                 {interests.map((interest, index) => {
                   const IconComponent = interest.icon
                   return (
-                    <div key={index} className="flex items-center gap-3 text-gray-600">
-                      <IconComponent size={20} className="text-navy-deep" />
+                    <div key={index} className="flex items-center gap-3 text-slate-600">
+                      <IconComponent size={20} className="text-emerald-600" />
                       <span>{interest.text}</span>
                     </div>
                   )
@@ -90,7 +90,7 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* Right Column - Skills */}
+          {/* Right Column - Skills & Stats */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -98,7 +98,6 @@ const About = () => {
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            <h3 className="text-2xl font-bold text-navy-deep mb-8">Áreas de Especialización</h3>
             <div className="space-y-6">
               {skills.map((skill, index) => {
                 const IconComponent = skill.icon
@@ -106,17 +105,17 @@ const About = () => {
                   <motion.div
                     key={index}
                     whileHover={{ scale: 1.02 }}
-                    className="bg-white rounded-xl p-6 border border-gray-200 hover:border-navy-deep/30 hover:shadow-lg transition-all duration-300"
+                    className="bg-white rounded-xl p-6 border border-slate-200 hover:border-emerald-500/30 hover:shadow-lg transition-all duration-300"
                   >
                     <div className="flex items-start gap-4">
-                      <div className="p-3 bg-navy-deep rounded-lg">
+                      <div className="p-3 bg-slate-900 rounded-lg">
                         <IconComponent size={24} className="text-white" />
                       </div>
                       <div>
-                        <h4 className="text-lg font-semibold text-navy-deep mb-2">
+                        <h4 className="text-lg font-semibold text-slate-900 mb-2">
                           {skill.title}
                         </h4>
-                        <p className="text-gray-600">{skill.description}</p>
+                        <p className="text-slate-600">{skill.description}</p>
                       </div>
                     </div>
                   </motion.div>
@@ -126,17 +125,17 @@ const About = () => {
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4 pt-8">
-              <div className="text-center p-4 bg-navy-deep/5 rounded-lg">
-                <div className="text-3xl font-bold text-navy-deep">27</div>
-                <div className="text-sm text-gray-600 mt-1">Años</div>
+              <div className="text-center p-4 bg-white border border-slate-200 rounded-lg shadow-sm">
+                <div className="text-3xl font-bold text-emerald-600">28</div>
+                <div className="text-sm text-slate-600 mt-1">Años</div>
               </div>
-              <div className="text-center p-4 bg-navy-deep/5 rounded-lg">
-                <div className="text-3xl font-bold text-navy-deep">3+</div>
-                <div className="text-sm text-gray-600 mt-1">Proyectos</div>
+              <div className="text-center p-4 bg-white border border-slate-200 rounded-lg shadow-sm">
+                <div className="text-3xl font-bold text-emerald-600">4+</div>
+                <div className="text-sm text-slate-600 mt-1">Años Exp.</div>
               </div>
-              <div className="text-center p-4 bg-navy-deep/5 rounded-lg">
-                <div className="text-3xl font-bold text-navy-deep">∞</div>
-                <div className="text-sm text-gray-600 mt-1">Aprendizaje</div>
+              <div className="text-center p-4 bg-white border border-slate-200 rounded-lg shadow-sm">
+                <div className="text-3xl font-bold text-emerald-600">∞</div>
+                <div className="text-sm text-slate-600 mt-1">Aprendizaje</div>
               </div>
             </div>
           </motion.div>
@@ -147,4 +146,3 @@ const About = () => {
 }
 
 export default About
-
