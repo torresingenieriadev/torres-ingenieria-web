@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Briefcase, Calendar, Award, GraduationCap, MapPin, ExternalLink } from 'lucide-react'
+import { Briefcase, Calendar, Award, GraduationCap, MapPin, Code } from 'lucide-react'
 
 const Experience = () => {
   const jobs = [
@@ -9,12 +9,12 @@ const Experience = () => {
       role: 'Software Engineer',
       company: 'Wolkvox',
       location: 'Medellín, CO',
-      period: 'Mayo 2024 - Presente',
-      description: 'Ingeniería de software para plataforma SaaS/CCaaS líder en la nube. Desarrollo de soluciones escalables y optimización de producto.',
+      period: 'Mayo 2024 — Presente',
+      description: 'Ingeniería de producto para la plataforma SaaS/CCaaS líder en LATAM. Responsable del desarrollo de funcionalidades core y de la calidad arquitectural del sistema.',
       achievements: [
-        'Ascendido de Developer Analyst Middle a Software Engineer por desempeño técnico.',
-        'Desarrollo de nuevas funcionalidades core para el producto wolkvox.',
-        'Implementación de mejores prácticas de código y patrones de diseño para mantenibilidad.'
+        'Promovido de Developer Analyst Middle a Software Engineer por impacto técnico demostrado.',
+        'Diseño e implementación de módulos críticos del producto Wolkvox.',
+        'Aplicación de patrones de diseño para mejorar mantenibilidad y escala del código base.'
       ],
       tech: ['SaaS', 'CCaaS', 'Cloud Architecture']
     },
@@ -22,29 +22,29 @@ const Experience = () => {
       id: 2,
       role: 'Full-stack Developer',
       company: 'Pratech Group / SURA',
-      location: 'Remoto (Proyectos LATAM)',
-      period: 'Ago 2021 - Oct 2023',
-      description: 'Consultor clave en el Centro de Protección Digital (CPD). Lideré la reingeniería de cotizadores críticos para SURA México (Productos: Sura Vida, Vida Grupo).',
+      location: 'Remoto (LATAM)',
+      period: 'Ago 2021 — Oct 2023',
+      description: 'Consultor técnico en el Centro de Protección Digital. Lideré la reingenieria de cotizadores de seguros de vida críticos para SURA México.',
       achievements: [
-        'Desarrollo y modernización de cotizadores de seguros de vida para el mercado mexicano.',
-        'Integración de pasarelas de pago y servicios core mediante microservicios en Azure.',
-        'Migración de procesos legacy a flujos digitales optimizados usando React y Node.js.'
+        'Modernización completa de los cotizadores Sura Vida y Vida Grupo (méxico).',
+        'Integración de pasarelas de pago y microservicios sobre Azure.',
+        'Migración de sistemas legados a stack moderno React/Node.js.'
       ],
-      tech: ['Azure', 'React', 'Node.js', 'SharePoint', 'Microservicios']
+      tech: ['Azure', 'React', 'Node.js', 'Microservicios']
     },
     {
       id: 3,
-      role: 'Administrador de Redes & Web',
+      role: 'Admin de Redes & Web',
       company: 'SmartCastle Domótica',
       location: 'Medellín, CO',
-      period: 'Ago 2020 - Ago 2021',
-      description: 'Transformación digital y liderazgo técnico en la modernización de infraestructura.',
+      period: 'Ago 2020 — Ago 2021',
+      description: 'Liderazgo técnico en transformación digital e infraestructura de red para empresa del sector domótico.',
       achievements: [
-        'Reingeniería completa del sitio web bajo principios de Clean Architecture.',
+        'Reingeniería web con Clean Architecture desde cero.',
         'Implementación de sistema de tickets y gestión interna.',
-        'Soporte especializado en redes y domótica.'
+        'Soporte especializado en redes y seguridad perimetral.'
       ],
-      tech: ['Clean Arch', 'React', 'Azure Functions']
+      tech: ['Clean Arch', 'React', 'Azure']
     }
   ]
 
@@ -52,131 +52,84 @@ const Experience = () => {
     {
       degree: 'Ingeniería de Software y Datos',
       school: 'IU Digital de Antioquia',
-      period: '2023 - Presente',
       icon: Code
     },
     {
-      degree: 'Ingeniería Eléctrica',
+      degree: 'Formación en Ingeniería Eléctrica',
       school: 'Universidad Nacional de Colombia',
-      period: '2016 - 2021',
+      period: '2016 — 2021',
       icon: GraduationCap
     }
   ]
-  
-  // Icono helper
-  function Code(props) {
-    return (
-      <svg
-        {...props}
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <polyline points="16 18 22 12 16 6" />
-        <polyline points="8 6 2 12 8 18" />
-      </svg>
-    )
-  }
 
   return (
-    <section id="experiencia" className="py-24 bg-slate-50 relative overflow-hidden">
-      {/* Background Decorativo */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
-      </div>
-
+    <section id="experiencia" className="py-32 relative">
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         
-        {/* Header */}
         <div className="mb-20 text-center md:text-left">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100/50 border border-emerald-200 text-emerald-700 text-xs font-semibold uppercase tracking-wider mb-4"
-          >
-            <Briefcase size={14} /> Trayectoria
-          </motion.div>
           <motion.h3 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-3xl md:text-4xl font-bold text-slate-900"
+            className="text-3xl md:text-4xl font-bold text-white mb-4"
           >
-            Experiencia Profesional
+            Trayectoria <span className="text-emerald-400">Profesional</span>
           </motion.h3>
+          <p className="text-slate-400 max-w-xl">
+             Evolución constante a través de retos técnicos y de negocio en entornos Enterprise y SaaS.
+          </p>
         </div>
 
-        {/* Timeline Layout */}
-        <div className="relative border-l-2 border-slate-200 ml-3 md:ml-0 space-y-16">
+        {/* Timeline */}
+        <div className="relative border-l border-slate-800 ml-3 md:ml-0 space-y-12">
           {jobs.map((job, index) => (
             <motion.div
               key={job.id}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.15 }}
+              transition={{ delay: index * 0.1 }}
               className="relative pl-8 md:pl-0"
             >
-              {/* Timeline Dot (Mobile) / Line Connector */}
-              <div className="absolute -left-[9px] top-0 w-5 h-5 rounded-full border-4 border-white bg-emerald-500 md:hidden" />
-              
               <div className={`md:flex items-start justify-between gap-10 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
                 
-                {/* Date & Company Info (Side) */}
-                <div className={`hidden md:block w-5/12 ${index % 2 === 1 ? 'text-left' : 'text-right'} mt-2`}>
-                   <h4 className="text-xl font-bold text-slate-900">{job.company}</h4>
-                   <div className="flex items-center gap-2 text-slate-500 text-sm mt-1 justify-end">
-                      {index % 2 === 1 ? null : <><Calendar size={14}/> {job.period}</>}
-                      {index % 2 === 1 ? <><Calendar size={14}/> {job.period}</> : null}
-                   </div>
-                   <div className="flex items-center gap-2 text-slate-400 text-xs mt-1 justify-end">
-                      {index % 2 === 1 ? null : <><MapPin size={12}/> {job.location}</>}
-                      {index % 2 === 1 ? <><MapPin size={12}/> {job.location}</> : null}
-                   </div>
+                {/* Meta Info */}
+                <div className={`hidden md:block w-5/12 ${index % 2 === 1 ? 'text-left' : 'text-right'} mt-1`}>
+                   <h4 className="text-xl font-bold text-white">{job.company}</h4>
+                   <div className="text-slate-500 text-sm mt-1">{job.period}</div>
                 </div>
 
-                {/* Center Dot (Desktop) */}
-                <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full border-2 border-white bg-emerald-500 shadow-md mt-3 z-10" />
+                {/* Dot */}
+                <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)] mt-2.5 z-10" />
+                <div className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)] md:hidden" />
 
-                {/* Content Card */}
+                {/* Card */}
                 <div className="md:w-5/12 w-full">
-                  <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:border-emerald-500/30 transition-all duration-300 group">
-                    {/* Mobile Header (Visible only on mobile) */}
-                    <div className="md:hidden mb-4 border-b border-slate-100 pb-4">
-                       <h4 className="text-lg font-bold text-slate-900">{job.company}</h4>
-                       <div className="text-emerald-600 font-medium text-sm">{job.role}</div>
-                       <div className="text-slate-500 text-xs mt-1">{job.period}</div>
+                  <div className="glass-card p-6 rounded-2xl hover:border-emerald-500/30 transition-colors group">
+                    <div className="md:hidden mb-4">
+                       <h4 className="text-lg font-bold text-white">{job.company}</h4>
+                       <div className="text-emerald-400 text-sm">{job.period}</div>
                     </div>
 
-                    {/* Desktop Role Title */}
-                    <h4 className="hidden md:block text-lg font-bold text-emerald-700 mb-3">{job.role}</h4>
+                    <h4 className="hidden md:block text-lg font-bold text-emerald-400 mb-2">{job.role}</h4>
+                    <h4 className="md:hidden text-lg font-bold text-emerald-400 mb-2">{job.role}</h4>
 
-                    <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                    <p className="text-slate-400 text-sm leading-relaxed mb-4">
                       {job.description}
                     </p>
 
-                    <ul className="space-y-2 mb-5">
+                    <ul className="space-y-2 mb-4">
                       {job.achievements.map((item, i) => (
                         <li key={i} className="flex items-start gap-2 text-sm text-slate-500">
-                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+                          <span className="mt-1.5 w-1 h-1 rounded-full bg-emerald-500/50 shrink-0" />
                           {item}
                         </li>
                       ))}
                     </ul>
 
-                    {/* Tags */}
                     <div className="flex flex-wrap gap-2">
                       {job.tech.map(t => (
-                        <span key={t} className="px-2.5 py-1 bg-slate-50 text-slate-600 text-xs font-medium rounded-md border border-slate-100 group-hover:bg-emerald-50 group-hover:text-emerald-700 group-hover:border-emerald-100 transition-colors">
+                        <span key={t} className="px-2 py-1 bg-slate-800/50 text-slate-300 text-[10px] uppercase font-bold tracking-wider rounded border border-slate-700">
                           {t}
                         </span>
                       ))}
@@ -189,49 +142,33 @@ const Experience = () => {
           ))}
         </div>
 
-        {/* Education Section Modernized */}
-        <div className="mt-24 pt-16 border-t border-slate-200">
-          <h3 className="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-3">
-            <GraduationCap className="text-emerald-600" /> Formación & Certificaciones
-          </h3>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Academic */}
-            <div className="space-y-4">
-               <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-2">Academia</h4>
-               {education.map((edu, idx) => (
-                 <div key={idx} className="flex items-start gap-4 p-4 rounded-xl bg-white border border-slate-100 hover:border-emerald-200 transition-colors">
-                    <div className="p-2 bg-emerald-50 text-emerald-600 rounded-lg">
-                      <edu.icon size={20} />
-                    </div>
-                    <div>
-                      <h5 className="font-bold text-slate-900">{edu.degree}</h5>
-                      <p className="text-slate-600 text-sm">{edu.school}</p>
-                      <p className="text-slate-400 text-xs mt-1">{edu.period}</p>
-                    </div>
-                 </div>
-               ))}
-            </div>
-
-            {/* Certs */}
-            <div>
-              <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">Certificaciones</h4>
-              <div className="flex flex-wrap gap-3">
-                {[
-                  'Scrum Foundation (SFPC)', 
-                  'Cloud Computing Certified', 
-                  'React Full Course', 
-                  'Mobile App Dev', 
-                  'Comunicación Asertiva'
-                ].map((cert, i) => (
-                  <div key={i} className="flex items-center gap-2 px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-700 hover:border-blue-300 hover:shadow-sm transition-all">
-                    <Award size={14} className="text-blue-500" />
-                    {cert}
-                  </div>
-                ))}
+        {/* Education */}
+        <div className="mt-24 pt-12 border-t border-slate-800/50">
+           <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+             <GraduationCap className="text-emerald-500" /> Formación & Certificaciones
+           </h3>
+           <div className="grid md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                 {education.map((edu, idx) => (
+                   <div key={idx} className="flex items-center gap-4 p-4 rounded-xl bg-slate-900/30 border border-slate-800 hover:border-slate-700 transition-colors">
+                      <div className="p-2 bg-emerald-500/10 text-emerald-400 rounded-lg">
+                        <edu.icon size={20} />
+                      </div>
+                      <div>
+                        <h5 className="font-bold text-slate-200">{edu.degree}</h5>
+                        <p className="text-slate-500 text-sm">{edu.school}</p>
+                      </div>
+                   </div>
+                 ))}
               </div>
-            </div>
-          </div>
+              <div className="flex flex-wrap content-start gap-3">
+                 {['Scrum Foundation', 'Cloud Computing', 'React Advanced', 'Mobile Dev', 'Communication'].map((cert, i) => (
+                   <div key={i} className="px-3 py-2 bg-slate-900/30 border border-slate-800 rounded-lg text-sm text-slate-400 hover:text-white transition-colors">
+                     {cert}
+                   </div>
+                 ))}
+              </div>
+           </div>
         </div>
 
       </div>

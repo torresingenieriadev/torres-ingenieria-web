@@ -7,35 +7,38 @@ export default {
   theme: {
     extend: {
       colors: {
-        navy: {
-          900: '#0a192f', // Fondo principal oscuro (opcional) o acento fuerte
-          800: '#112240',
-        },
         slate: {
-          50: '#f8fafc',
-          100: '#f1f5f9',
-          800: '#1e293b',
-          900: '#0f172a', // "Technical Slate"
+          850: '#151e32',
+          900: '#0f172a',
+          950: '#020617',
         },
         emerald: {
-          400: '#34d399', // Acento técnico (éxito, código)
+          400: '#34d399',
           500: '#10b981',
+          glow: 'rgba(52, 211, 153, 0.15)'
         },
-        orange: {
-          500: '#f97316', // CTA
-        },
+        accent: {
+          cyan: '#22d3ee',
+          purple: '#c084fc'
+        }
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Calistoga', 'serif'], // Opcional para títulos si quisieras, por ahora full sans limpio
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'hero-glow': 'conic-gradient(from 180deg at 50% 50%, #10b981 0deg, #3b82f6 180deg, #10b981 360deg)',
       },
       animation: {
-        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+        'blob': 'blob 7s infinite',
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
-        fadeInUp: {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
+        blob: {
+          '0%': { transform: 'translate(0px, 0px) scale(1)' },
+          '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+          '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+          '100%': { transform: 'translate(0px, 0px) scale(1)' },
         }
       }
     },

@@ -1,144 +1,93 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Code2, Database, Rocket, Brain, BookOpen, Lightbulb } from 'lucide-react'
+import { Brain, Lightbulb, Target, Zap, Shield, GitBranch } from 'lucide-react'
 
 const About = () => {
-  const skills = [
+  const principles = [
     {
-      icon: Code2,
-      title: 'Desarrollo Full Stack',
-      description: 'React, Node.js, PHP y arquitectura de sistemas escalables.',
+      icon: Target,
+      title: 'Orientado a Resultados',
+      description: 'Cada línea de código tiene un propósito. Construyo con impacto de negocio como norte, no solo con elegancia técnica.'
     },
     {
-      icon: Database,
-      title: 'Migraciones Críticas',
-      description: 'Especialista en transformación de infraestructura legacy.',
+      icon: Shield,
+      title: 'Sistemas Resilientes',
+      description: 'Diseño arquitecturas que soportan fallos, escalan bajo presión y minimizan el tiempo de inactividad en producción.'
     },
     {
-      icon: Rocket,
-      title: 'Arquitectura de Software',
-      description: 'Diseño de soluciones robustas y mantenibles a largo plazo.',
-    },
+      icon: GitBranch,
+      title: 'Criterio Técnico Sólido',
+      description: 'Tomo decisiones de arquitectura basadas en evidencia: benchmarks, trazabilidad y ciclos de feedback reales.'
+    }
   ]
 
-  const interests = [
-    { icon: Brain, text: 'Filosofía y pensamiento sistémico' },
-    { icon: BookOpen, text: 'Aprendizaje continuo e investigación' },
-    { icon: Lightbulb, text: 'Estrategia de producto y negocios' },
+  const values = [
+    { icon: Brain, text: 'Pensamiento Sistémico' },
+    { icon: Lightbulb, text: 'Estrategia de Producto' },
+    { icon: Zap, text: 'Velocidad con Calidad' },
   ]
 
   return (
-    <section id="sobre-mi" className="py-32 bg-slate-50 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
-        {/* Header */}
+    <section id="sobre-mi" className="py-32 relative">
+      <div className="max-w-5xl mx-auto px-6 relative z-10">
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <h2 className="text-emerald-600 font-semibold tracking-wide uppercase text-sm mb-3">Filosofía de Trabajo</h2>
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Sobre Mí</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Sobre <span className="text-emerald-400">Mí</span>
+          </h2>
+          <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            Soy <span className="text-white font-semibold">Santiago Torres Díaz</span>, ingeniero de software con raíces en
+            Medellín. Mi perfil integra la <span className="text-emerald-400">rigurosidad técnica</span> y las bases analíticas de la ingeniería
+            con la agilidad del desarrollo de software moderno — una combinación que me permite abordar problemas complejos con una visión de sistema integral.
+          </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left Column - Bio */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
-          >
-            <div className="space-y-4 text-slate-600 text-lg leading-relaxed">
-              <p>
-                Soy <span className="font-semibold text-slate-900">Santiago Torres Díaz</span>, ingeniero de software con base en{' '}
-                <span className="font-semibold">Medellín, Colombia</span>. Mi enfoque combina precisión técnica
-                con una visión estratégica del negocio.
-              </p>
-              <p>
-                Actualmente curso <span className="font-semibold text-slate-900">Ingeniería de Software y Datos en la IU Digital de Antioquia</span>, donde profundizo
-                en arquitecturas distribuidas y análisis de sistemas complejos, complementando mi formación previa en Ingeniería Eléctrica (UNAL).
-              </p>
-              <p>
-                Mi trabajo se centra en resolver problemas críticos: desde migrar infraestructuras de mensajería
-                masiva hasta diseñar experiencias de e-commerce que convierten. Creo en el código como herramienta
-                de transformación, donde cada línea debe tener un propósito claro.
-              </p>
-              <p>
-                Más allá del código, me apasiona entender los sistemas —tanto técnicos como humanos—. La filosofía
-                y el aprendizaje continuo me dan perspectivas únicas para resolver problemas complejos de formas no convencionales.
-              </p>
-            </div>
-
-            {/* Interests */}
-            <div className="pt-8 space-y-3">
-              <h3 className="text-xl font-semibold text-slate-900">Más allá del código</h3>
-              <div className="space-y-2">
-                {interests.map((interest, index) => {
-                  const IconComponent = interest.icon
-                  return (
-                    <div key={index} className="flex items-center gap-3 text-slate-600">
-                      <IconComponent size={20} className="text-emerald-600" />
-                      <span>{interest.text}</span>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right Column - Skills & Stats */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
-          >
-            <div className="space-y-6">
-              {skills.map((skill, index) => {
-                const IconComponent = skill.icon
-                return (
-                  <motion.div
-                    key={index}
-                    whileHover={{ scale: 1.02 }}
-                    className="bg-white rounded-xl p-6 border border-slate-200 hover:border-emerald-500/30 hover:shadow-lg transition-all duration-300"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="p-3 bg-slate-900 rounded-lg">
-                        <IconComponent size={24} className="text-white" />
-                      </div>
-                      <div>
-                        <h4 className="text-lg font-semibold text-slate-900 mb-2">
-                          {skill.title}
-                        </h4>
-                        <p className="text-slate-600">{skill.description}</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                )
-              })}
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 pt-8">
-              <div className="text-center p-4 bg-white border border-slate-200 rounded-lg shadow-sm">
-                <div className="text-3xl font-bold text-emerald-600">28</div>
-                <div className="text-sm text-slate-600 mt-1">Años</div>
-              </div>
-              <div className="text-center p-4 bg-white border border-slate-200 rounded-lg shadow-sm">
-                <div className="text-3xl font-bold text-emerald-600">4+</div>
-                <div className="text-sm text-slate-600 mt-1">Años Exp.</div>
-              </div>
-              <div className="text-center p-4 bg-white border border-slate-200 rounded-lg shadow-sm">
-                <div className="text-3xl font-bold text-emerald-600">∞</div>
-                <div className="text-sm text-slate-600 mt-1">Aprendizaje</div>
-              </div>
-            </div>
-          </motion.div>
+        {/* Principles */}
+        <div className="grid md:grid-cols-3 gap-6 mb-16">
+          {principles.map((item, index) => {
+            const Icon = item.icon
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="glass-card p-6 rounded-2xl hover:border-emerald-500/30 transition-all group"
+              >
+                <div className="p-3 bg-emerald-500/10 text-emerald-400 rounded-xl w-fit mb-4 group-hover:bg-emerald-500/20 transition-colors">
+                  <Icon size={22} />
+                </div>
+                <h4 className="text-white font-bold mb-2">{item.title}</h4>
+                <p className="text-slate-400 text-sm leading-relaxed">{item.description}</p>
+              </motion.div>
+            )
+          })}
         </div>
+
+        {/* Values Tags */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex flex-wrap justify-center gap-4"
+        >
+          {values.map((value, index) => {
+            const Icon = value.icon
+            return (
+              <div key={index} className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-900 border border-slate-800 hover:border-emerald-500/40 text-slate-400 hover:text-emerald-400 text-sm transition-all group cursor-default">
+                <Icon size={16} className="text-emerald-500 group-hover:scale-110 transition-transform" />
+                <span>{value.text}</span>
+              </div>
+            )
+          })}
+        </motion.div>
+
       </div>
     </section>
   )

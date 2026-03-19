@@ -1,74 +1,73 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { CheckCircle2 } from 'lucide-react'
+import { Server, Terminal, Globe, Cpu } from 'lucide-react'
 
 const Skills = () => {
   const domains = [
     {
-      title: 'Backend & Arquitectura',
-      skills: ['Node.js / Express', 'Python (FastAPI)', 'PostgreSQL / SQL', 'Microservicios', 'System Design']
+      title: 'Backend Core',
+      icon: Server,
+      skills: ['Node.js', 'Python', 'PostgreSQL', 'Microservices', 'Redis'],
+      color: 'text-emerald-400',
+      bg: 'bg-emerald-400/10'
     },
     {
       title: 'Frontend & UX',
-      skills: ['React / Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'State Management']
+      icon: Globe,
+      skills: ['React', 'Next.js', 'TypeScript', 'Tailwind', 'Framer'],
+      color: 'text-blue-400',
+      bg: 'bg-blue-400/10'
     },
     {
       title: 'DevOps & Cloud',
-      skills: ['Docker / Containers', 'CI/CD Pipelines', 'AWS (Básico)', 'Git / GitHub Flows', 'Linux Admin']
+      icon: Terminal,
+      skills: ['Docker', 'AWS / Azure', 'CI/CD', 'Linux', 'GitOps'],
+      color: 'text-purple-400',
+      bg: 'bg-purple-400/10'
     },
     {
-      title: 'Estrategia & Soft Skills',
-      skills: ['Liderazgo Técnico', 'Metodologías Ágiles', 'Mentoría de Juniors', 'Comunicación Cliente', 'Product Scope']
+      title: 'Architecture',
+      icon: Cpu,
+      skills: ['System Design', 'Clean Arch', 'Serverless', 'Event-Driven', 'Scalability'],
+      color: 'text-orange-400',
+      bg: 'bg-orange-400/10'
     }
   ]
 
   return (
-    <section className="py-24 bg-slate-900 text-white">
+    <section className="py-24 relative">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid lg:grid-cols-12 gap-12">
-          
-          {/* Intro Text */}
-          <div className="lg:col-span-4">
-            <h2 className="text-emerald-400 font-semibold tracking-wide uppercase text-sm mb-3">
-              Stack Tecnológico
-            </h2>
-            <h3 className="text-3xl font-bold mb-6">
-              Herramientas elegidas con propósito
-            </h3>
-            <p className="text-slate-400 leading-relaxed">
-              No me caso con tecnologías, elijo la herramienta correcta para cada problema. 
-              Mi foco actual está en el ecosistema JavaScript/TypeScript moderno y arquitecturas serverless.
-            </p>
-          </div>
+        <div className="mb-12">
+            <h3 className="text-2xl font-bold text-white mb-2">Stack Tecnológico</h3>
+            <p className="text-slate-400">Herramientas elegidas por rendimiento y escalabilidad.</p>
+        </div>
 
-          {/* Grid Skills */}
-          <div className="lg:col-span-8">
-            <div className="grid md:grid-cols-2 gap-8">
-              {domains.map((domain, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="bg-slate-800/50 p-6 rounded-xl border border-slate-700/50 hover:border-slate-600 transition-colors"
-                >
-                  <h4 className="text-lg font-bold text-white mb-4 border-b border-slate-700 pb-2">
-                    {domain.title}
-                  </h4>
-                  <ul className="space-y-3">
-                    {domain.skills.map((skill) => (
-                      <li key={skill} className="flex items-center gap-3 text-slate-300 text-sm">
-                        <CheckCircle2 size={16} className="text-emerald-500" />
-                        {skill}
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {domains.map((domain, idx) => {
+            const Icon = domain.icon
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="glass-card p-6 rounded-2xl hover:bg-slate-800/50 transition-colors group"
+              >
+                <div className={`w-12 h-12 rounded-xl ${domain.bg} ${domain.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                  <Icon size={24} />
+                </div>
+                <h4 className="text-lg font-bold text-white mb-4">{domain.title}</h4>
+                <div className="flex flex-wrap gap-2">
+                  {domain.skills.map((skill) => (
+                    <span key={skill} className="text-xs font-medium text-slate-400 bg-slate-800/50 px-2 py-1 rounded border border-slate-700/50">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>
@@ -76,4 +75,3 @@ const Skills = () => {
 }
 
 export default Skills
-
